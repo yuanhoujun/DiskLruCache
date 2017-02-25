@@ -698,6 +698,11 @@ public final class DiskLruCache implements Closeable {
       return inputStreamToString(getInputStream(index));
     }
 
+    /** Returns the serializable value for {@code index}. */
+    public Serializable getSerializable(int index) throws IOException, ClassNotFoundException {
+      return inputStreamToSerializable(getInputStream(index));
+    }
+
     /** Returns the byte length of the value for {@code index}. */
     public long getLength(int index) {
       return lengths[index];
